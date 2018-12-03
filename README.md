@@ -8,7 +8,7 @@ Example
 
 ```
 module "efs" {
-  source  = "Aplyca/route53/efs"
+  source  = "Aplyca/efs/aws"
 
   name    = "EFS file system"
   vpc_id  = "vpc-ssfe2j4h"
