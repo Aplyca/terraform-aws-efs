@@ -21,7 +21,7 @@ resource "aws_security_group" "this" {
     from_port = 2049
     to_port = 2049
     protocol = "tcp"
-    security_groups = ["${var.access_sg_ids}"]
+    security_groups = "${var.access_sg_ids}"
     description = "Open to incoming EFS traffic from App instances"
   }
 
@@ -29,7 +29,7 @@ resource "aws_security_group" "this" {
     from_port = 111
     to_port = 111
     protocol = "tcp"
-    security_groups = ["${var.access_sg_ids}"]
+    security_groups = "${var.access_sg_ids}"
     description = "Open to incoming EFS traffic from App instances"
   }
 
