@@ -23,3 +23,9 @@ variable "tags" {
   description = "A mapping of tags to assign to the resource."
   default     = {}
 }
+
+variable "efs_transition_to_ia" {
+  description = "( Optional ) Set transition_to_ia to indicates how long it takes to transition files to the IA storage class, i.e AFTER_30_DAYS"
+  type        = "string"
+  default     = ""
+}

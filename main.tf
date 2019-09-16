@@ -9,6 +9,12 @@ resource "aws_efs_file_system" "this" {
   creation_token = "${local.id}"
   tags = "${merge(var.tags, map("Name", var.name))}"
   encrypted = true
+  dynamic "lifecycle_policy" {
+    for_each = var.efs_transition_to_ia != "" ? list(var.efs_transition_to_ia) : []
+    content {
+      transition_to_ia = "${var.efs_transition_to_ia}"
+    }
+  }
 }
 
 # Security group EFS access
